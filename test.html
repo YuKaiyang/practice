@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <style>
+    .container {
+      width: 500px;
+      height: 200px;
+    }
+
+    .item-1 {
+      width: 500px;
+      height: 200px;
+      background-color: aquamarine;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    .input {
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item-1">item-1
+      <div class="item-1">item-2
+        <div class="item-1">item-3</div>
+      </div>
+    </div>
+    <input class="input">
+    <label>Choose an ice cream flavor:
+      <select id="ice-cream" name="ice-cream">
+        <option value="">Select One …</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="strawberry">Strawberry</option>
+        <option value="vanilla">Vanilla</option>
+      </select>
+    </label>
+  </div>
+  <script>
+    var container = document.getElementsByClassName('container')[0]
+    container.addEventListener('touchstart', function (e) {
+      console.log('touchstart', e)
+    })
+    container.addEventListener('touchmove', function (e) {
+      console.log('touchmove', e)
+    })
+    container.addEventListener('touchend', function (e) {
+      console.log('touchend', e)
+    })
+    document.getElementsByClassName('item-1')[0].addEventListener('click', function fun1(e) {
+      console.log(1)
+      e.stopPropagation()
+    })
+    document.getElementsByClassName('item-1')[1].addEventListener('click', function fun1(e) {
+      console.log(2)
+      e.stopPropagation()
+    })
+    document.getElementsByClassName('item-1')[2].addEventListener('click', function fun1(e) {
+      console.log(3)
+      e.stopPropagation()
+    })
+    document.getElementsByClassName('input')[0].addEventListener('input', function fun1(e) {
+      console.log('input')
+      e.stopPropagation()
+    })
+    document.getElementsByClassName('input')[0].addEventListener('change', function fun1(e) {
+      console.log('change')
+      e.stopPropagation()
+    })
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('select[name="ice-cream"]').onchange = changeEventHandler;
+    }, false);
+
+    function changeEventHandler(event) {
+      // You can use “this” to refer to the selected element.
+      console.log(this.value) 
+    } 
+  </script>
+</body>
+
+</html>
