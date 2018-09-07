@@ -49,12 +49,8 @@ def C(n, k):
     return P(n, k)/factorial(k)
 
 
-def P2(n, k):
-    return factorial2(n-k+1, n)
-
-
 def C2(n, k):
-    return P2(n, k)/factorial(k)
+    return factorial2(n-k+1, n)/factorial(k)
 
 
 def ssq():
