@@ -56,9 +56,18 @@
       .content {
         flex-direction: column;
       }
+
       .content>div {
         flex: auto;
       }
+    }
+
+    .title {
+      width: 200px;
+      overflow: hidden;
+      height: 50px;
+      white-space:normal;
+      text-overflow: ellipsis;
     }
   </style>
 </head>
@@ -68,7 +77,12 @@
     <div class="header">header</div>
     <div class="content">
       <div class="left">left</div>
-      <div class="center">center</div>
+      <div class="center">
+        <div class="title">
+          巴拉巴拉，巴拉巴拉巴拉，大会上客户客家话良好的所得税
+          发货的空间好了客家话了客家话刘偶离开家就。
+        </div>
+      </div>
       <div class="right">right</div>
     </div>
     <div class="footer">footer</div>

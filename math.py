@@ -27,35 +27,34 @@ def gdc(a, b):
 def factorial(n):
     a, b = 1, 2
     while b <= n:
-        a, b = a*b, b+1
+        a, b = a * b, b + 1
     return a
 
 
-def factorial2(x, *y):
-    if y[0]:
-        a, b, n = x, x+1, y[0]
-    else:
-        a, b, n = 1, 2, x
-    while b <= n:
-        a, b = a*b, b+1
+def P1(n, r):  # 排列公式
+    a, b = n, n - 1
+    while b > n - r:
+        a, b = a * b, b - 1
     return a
 
 
-def P(n, k):
-    return factorial(n)/factorial(n-k)
+def C(n, r):  # 组合公式
+    return P1(n, r)/factorial(r)
 
 
-def C(n, k):
-    return P(n, k)/factorial(k)
+def pow(x, n):
+    a, i = x, 1
+    while i < n:
+        a, i = a * x, i + 1
+    return a
 
 
-def C2(n, k):
-    return factorial2(n-k+1, n)/factorial(k)
+def P(n, r):  # 概率公式
+    return P1(n, r)/pow(n, r)
 
 
-def ssq():
-    return C(33, 6)*16
+print(1 - P(365, 64))
+print(1 - P(365, 23))
 
-
-print(ssq())
-print(C2(33, 6)*16)
+print(P1(4, 2))
+    
