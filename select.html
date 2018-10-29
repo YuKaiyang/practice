@@ -40,6 +40,10 @@
         <option value="vanilla">Vanilla</option>
       </select>
     </label>
+    <div id="all">
+      <div id="div1">div1</div>
+      <div id="div2">div2</div>
+    </div>
   </div>
   <script>
     var container = document.getElementsByClassName('container')[0]
@@ -66,7 +70,6 @@
     })
     document.getElementsByClassName('input')[0].addEventListener('input', function fun1(e) {
       console.log('input')
-      e.stopPropagation()
     })
     document.getElementsByClassName('input')[0].addEventListener('change', function fun1(e) {
       console.log('change')
@@ -79,8 +82,18 @@
 
     function changeEventHandler(event) {
       // You can use “this” to refer to the selected element.
-      console.log(this.value) 
-    } 
+      console.log(this.value)
+    }
+    document.getElementById('all').addEventListener('click', function (e) {
+      console.log('all')
+    }, true);
+    document.getElementById('div1').addEventListener('click', function (e) {
+      console.log('div1')
+      e.stopPropagation()
+    }, false);
+    document.getElementById('div2').addEventListener('click', function (e) {
+      console.log('div2')
+    }, false);
   </script>
 </body>
 
